@@ -2,9 +2,9 @@ public class Main {
 	
     public static void main(String[] args) {
 
-        Store store = new Store();
+        MainHelper mHelper = new MainHelper();
 
-        store.run();
+        mHelper.run();
 
     }
 }
