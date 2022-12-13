@@ -1,11 +1,10 @@
 public class Main {
+	
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
-		
-		MainHelper mHelper = new MainHelper();
-		
-		mHelper.run();
+        Store store = new Store();
 
-	}
+        store.run();
 
+    }
 }
