@@ -1,131 +1,126 @@
+import java.util.HashSet;
 import java.util.Scanner;
 
 public abstract class Product {
 
-	protected String name;
-	protected String color;
-	protected int id;
-	protected int discountRatio;
-	protected int stock;
-	protected int memory;
-	protected int ram;
-	protected double price;
-	protected double screenSize;
+    protected int id;
+    protected double unitPrice;
+    protected double discountRate;
+    protected int stockAmount;
+    protected String name;
+    protected int storage;
+    protected double screenSize;
+    protected int ram;
+    protected boolean isRun = true;
+    protected Brand brand;
+    static HashSet<Brand> brandHashSet = new HashSet<>();
 
-	Brand brand;
+    protected static Scanner scanner = new Scanner(System.in);
 
-	protected Scanner scanner = new Scanner(System.in);
+    Product(){}
 
-	public Product(String name, String color, int id, int discountRatio, int stock, int memory, int ram, double price,
-			double screenSize, Brand brand, Scanner scanner) {
+    public Product(int id, double unitPrice, double discountRate, int stockAmount, String name, Brand brand, int storage, double screenSize, int ram) {
+        this.id = id;
+        this.unitPrice = unitPrice;
+        this.discountRate = discountRate;
+        this.stockAmount = stockAmount;
+        this.name = name;
+        this.brand = brand;
+        this.storage = storage;
+        this.screenSize = screenSize;
+        this.ram = ram;
+    }
 
-		this.name = name;
-		this.color = color;
-		this.id = id;
-		this.discountRatio = discountRatio;
-		this.stock = stock;
-		this.memory = memory;
-		this.ram = ram;
-		this.price = price;
-		this.screenSize = screenSize;
-		this.brand = brand;
-		this.scanner = scanner;
-	}
+    public abstract void add();
+    public abstract void delete();
+    public abstract void listById();
+    public abstract void listByBrand();
 
-	public abstract void showMenu();
+    public int getId() {
+        return id;
+    }
 
-	public abstract void addProduct();
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public abstract void deleteProduct();
+    public double getUnitPrice() {
+        return unitPrice;
+    }
 
-	public abstract void listProduct();
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public double getDiscountRate() {
+        return discountRate;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
+    }
 
-	public String getColor() {
-		return color;
-	}
+    public int getStockAmount() {
+        return stockAmount;
+    }
 
-	public void setColor(String color) {
-		this.color = color;
-	}
+    public void setStockAmount(int stockAmount) {
+        this.stockAmount = stockAmount;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public int getDiscountRatio() {
-		return discountRatio;
-	}
+    public Brand getBrand() {
+        return brand;
+    }
 
-	public void setDiscountRatio(int discountRatio) {
-		this.discountRatio = discountRatio;
-	}
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
 
-	public int getStock() {
-		return stock;
-	}
+    public int getStorage() {
+        return storage;
+    }
 
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+    public void setStorage(int storage) {
+        this.storage = storage;
+    }
 
-	public int getMemory() {
-		return memory;
-	}
+    public double getScreenSize() {
+        return screenSize;
+    }
 
-	public void setMemory(int memory) {
-		this.memory = memory;
-	}
+    public void setScreenSize(double screenSize) {
+        this.screenSize = screenSize;
+    }
 
-	public int getRam() {
-		return ram;
-	}
+    public int getRam() {
+        return ram;
+    }
 
-	public void setRam(int ram) {
-		this.ram = ram;
-	}
+    public void setRam(int ram) {
+        this.ram = ram;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public static Scanner getScanner() {
+        return scanner;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public static void setScanner(Scanner scanner) {
+        Product.scanner = scanner;
+    }
 
-	public double getScreenSize() {
-		return screenSize;
-	}
+    public boolean isRun() {
+        return isRun;
+    }
 
-	public void setScreenSize(double screenSize) {
-		this.screenSize = screenSize;
-	}
-
-	public Brand getBrand() {
-		return brand;
-	}
-
-	public void setBrand(Brand brand) {
-		this.brand = brand;
-	}
-
-	public Scanner getScanner() {
-		return scanner;
-	}
-
-	public void setScanner(Scanner scanner) {
-		this.scanner = scanner;
-	}
-
+    public void setRun(boolean run) {
+        isRun = run;
+    }
 }
