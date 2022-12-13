@@ -2,45 +2,50 @@ import java.util.Scanner;
 
 public class MainHelper {
 
-	boolean isRun = true;
 	
-	Scanner scanner = new Scanner(System.in);
+    public void run(){
+        showMenu();
+    }
 
-	public void run() {
-		System.out.println("PatikaStore Product Management Panel");
-		System.out.println("1 - Notebook Transactions");
-		System.out.println("2 - Phone Transactions");
-		System.out.println("3 - List Brand");
-		System.out.println("0 - Exit");
-		System.out.print("\nYour choice: ");
-		int select = scanner.nextInt();
+    public void showMenu(){
+        boolean isRun = true;
 
-		while (select < 0 || 3 < select) {
-			System.out.println("Invalid number, try again!");
-		}
+        Scanner scanner = new Scanner(System.in);
 
-		while (isRun) {
-			switch (select) {
-			case 1:
-				Notebook notebook = new Notebook();
-				notebook.showMenu();
-				break;
-			case 2:
-				Phone phone = new Phone();
-				phone.showMenu();
-				break;
-			case 3:
-				Brand brand = new Brand();
-				brand.showBrand();
-				break;
-			case 0:
-				System.out.println("Good bye, see you again..");
-				isRun = false;
-				break;
-			}
-			
-		}
-		
-	}
+        while (isRun) {
+            System.out.println("\n========================================");
+            System.out.println("\nPatikaStore Product Management Panel\n");
+            System.out.println("1 - Notebook Transactions\n"
+                    + "2 - Phone Transactions\n"
+                    + "3 - List Brand\n"
+                    + "0 - Exit");
+            System.out.print("\nYour choice: ");
+            int select = scanner.nextInt();
+            System.out.println("\n========================================");
+
+            switch (select) {
+                case 0:
+                    System.out.println("Log out!");
+                    isRun = false;
+                    break;
+                case 1:
+                    Notebook notebook = new Notebook();
+                    notebook.run();
+                    break;
+                case 2:
+                    Phone phone = new Phone();
+                    phone.run();
+                    break;
+                case 3:
+                    Brand brand = new Brand();
+                    brand.run();
+                    break;
+                default:
+                    System.out.println("Invalid number, try again.");
+                    break;
+            }
+        }
+        scanner.close();
+    }
 	
 }
